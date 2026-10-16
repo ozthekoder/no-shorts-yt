@@ -3,3 +3,4 @@ web-ext-artifacts/
 test-results/
 playwright-report/
 .DS_Store
+.amo-upload-uuid

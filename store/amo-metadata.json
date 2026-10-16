@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "en-US": "Hides YouTube Shorts from the home feed, subscriptions, search, sidebars and channel pages. No settings, no tracking, no data collected. Shorts links someone sends you still open normally."
+  },
+  "description": {
+    "en-US": "YouTube Shorts take over the home feed, search results and sidebar. No Shorts removes them so you can browse YouTube without getting pulled into the endless scroll.\n\nWhat gets hidden:\n• Shorts shelves on the home and subscriptions feeds\n• Shorts shelves and Shorts results in search\n• Shorts in the watch-page sidebar and notifications\n• The Shorts entry in the sidebar and mini sidebar\n• The Shorts tab on channel pages\n• The Shorts filter on search results\n\nWhat stays:\n• All regular videos\n• Direct Shorts links someone sends you still open normally\n\nShorts are hidden before the page is drawn, so they never flash on screen.\n\nPrivacy: No Shorts collects no data, makes no network requests and has no settings. It only runs on www.youtube.com.\n\nWorks in Firefox and Firefox-based browsers such as Zen."
+  },
+  "categories": ["photos-music-videos", "appearance"],
+  "version": {
+    "license": "MIT",
+    "release_notes": {
+      "en-US": "First public release."
+    },
+    "approval_notes": "No build step, bundling or minification: the uploaded package is the source (manifest.json, shorts.css, shorts.js, icons/icon.svg). shorts.css hides YouTube Shorts UI with CSS selectors. shorts.js only toggles a data-no-shorts attribute on YouTube's search filter chips whose label is 'Shorts' (or its ja/uk translations) so shorts.css can hide them; it uses a MutationObserver batched with requestAnimationFrame. No network requests, no storage, no permissions beyond the content script on www.youtube.com."
+  }
+}

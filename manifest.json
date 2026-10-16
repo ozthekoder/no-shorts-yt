@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "No Shorts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Hides YouTube Shorts from feeds, search, sidebars and navigation.",
   "icons": {
     "48": "icons/icon.svg",

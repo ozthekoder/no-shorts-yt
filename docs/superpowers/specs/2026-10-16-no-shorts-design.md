@@ -87,3 +87,13 @@ Every rule is `display: none !important`. The candidates below come from what I 
 ## Known limitations (to document in README)
 - When YouTube changes its markup, selectors will need updates. The fixtures make regressions visible, but they can't detect drift on the live site by themselves.
 - `m.youtube.com`, YouTube Music, and Studio are out of scope for v1.
+
+## Implementation notes (2026-10-16)
+- Live survey (Firefox, logged out, 16 locales): labels are "Shorts" except ja "ショート" and uk "YouTube Shorts".
+  The full sidebar entry has no href, but its icon path is the same in every language. The mini sidebar has `href="/shorts/"`.
+- The search "Shorts" filter chip is identified only by its text, so the user chose the JS fallback: `shorts.js` tags chips
+  by label (re-checking each one so recycled chips are un-tagged) and CSS hides `[data-no-shorts]`. The observer
+  watches `document` (the chip bar is created lazily) but is batched to one pass per frame.
+- Watch-page sidebar, subscriptions and notifications showed no Shorts while logged out; their selectors are defensive
+  and need a manual check in a logged-in profile.
+- Added `gecko_android.strict_min_version: 142.0` to silence the lint warning about `data_collection_permissions`.

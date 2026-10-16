@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fixture: navigation</title>
+<!-- Observed 2026-10-16 (Firefox). Labels: "Shorts" in most languages, "ショート" (ja), "YouTube Shorts" (uk).
+     The full guide's Shorts entry has no href; the mini guide's has href="/shorts/".
+     The Shorts icon path is identical across languages. -->
+<ytd-guide-section-renderer>
+  <ytd-guide-entry-renderer data-test="regular" data-name="guide: Home">
+    <a id="endpoint" title="Home" href="/">
+      <yt-icon><svg viewBox="0 0 24 24" width="24" height="24"><path d="m11.485 2.143-8 4.8-2 1.2a1 1 0 001.03 1.714L3 9.567V20a2 2 0 002 2h6v-7h2v7h6a2 2 0 002-2V9.567l.485.29a1 1 0 001.03-1.714l-2-1.2-8-4.8a1 1 0 00-1.03 0ZM5 8.366l7-4.2 7 4.2V20h-4v-5.5a1.5 1.5 0 00-1.5-1.5h-3A1.5 1.5 0 009 14.5V20H5V8.366Z"/></svg></yt-icon>
+      Home
+    </a>
+  </ytd-guide-entry-renderer>
+  <ytd-guide-entry-renderer data-test="short" data-name="guide: Shorts (en)">
+    <a id="endpoint" title="Shorts" role="link">
+      <yt-icon><svg viewBox="0 0 24 24" width="24" height="24"><path d="m13.467 1.19-8 4.7a5 5 0 00-.255 8.46 5 5 0 005.32 8.462l8-4.7a5 5 0 00.258-8.462 5 5 0 001.641-6.464l-.12-.217a5 5 0 00-6.844-1.78m5.12 2.79a2.999 2.999 0 01-1.067 4.107l-1.327.78a1 1 0 00.096 1.775l.943.423a3 3 0 01.288 5.323l-8 4.7a3 3 0 01-3.039-5.173l1.327-.78a1 1 0 00-.097-1.775l-.942-.423a3 3 0 01-.288-5.323l8-4.7a3 3 0 014.106 1.066ZM15 12l-5-3v6l5-3Z"/></svg></yt-icon>
+      Shorts
+    </a>
+  </ytd-guide-entry-renderer>
+  <ytd-guide-entry-renderer data-test="short" data-name="guide: Shorts (ja)">
+    <a id="endpoint" title="ショート" role="link">
+      <yt-icon><svg viewBox="0 0 24 24" width="24" height="24"><path d="m13.467 1.19-8 4.7a5 5 0 00-.255 8.46 5 5 0 005.32 8.462l8-4.7a5 5 0 00.258-8.462 5 5 0 001.641-6.464l-.12-.217a5 5 0 00-6.844-1.78m5.12 2.79a2.999 2.999 0 01-1.067 4.107l-1.327.78a1 1 0 00.096 1.775l.943.423a3 3 0 01.288 5.323l-8 4.7a3 3 0 01-3.039-5.173l1.327-.78a1 1 0 00-.097-1.775l-.942-.423a3 3 0 01-.288-5.323l8-4.7a3 3 0 014.106 1.066ZM15 12l-5-3v6l5-3Z"/></svg></yt-icon>
+      ショート
+    </a>
+  </ytd-guide-entry-renderer>
+  <ytd-guide-entry-renderer data-test="regular" data-name="guide: Subscriptions">
+    <a id="endpoint" title="Subscriptions" href="/feed/subscriptions">Subscriptions</a>
+  </ytd-guide-entry-renderer>
+  <!-- Guard: subscribed channels use the same renderer, with the channel name as title. -->
+  <ytd-guide-entry-renderer data-test="regular" data-name="guide: subscribed channel 'Daily Shorts'">
+    <a id="endpoint" title="Daily Shorts" href="/@dailyshorts">Daily Shorts</a>
+  </ytd-guide-entry-renderer>
+</ytd-guide-section-renderer>
+
+<ytd-mini-guide-renderer>
+  <ytd-mini-guide-entry-renderer aria-label="Home" data-test="regular" data-name="mini guide: Home">
+    <a id="endpoint" title="Home" href="/">Home</a>
+  </ytd-mini-guide-entry-renderer>
+  <ytd-mini-guide-entry-renderer aria-label="Shorts" data-test="short" data-name="mini guide: Shorts">
+    <a id="endpoint" title="Shorts" href="/shorts/">Shorts</a>
+  </ytd-mini-guide-entry-renderer>
+</ytd-mini-guide-renderer>
+
+<yt-tab-group-shape>
+  <yt-tab-shape role="tab" tab-title="Home" data-test="regular" data-name="tab: Home">Home</yt-tab-shape>
+  <yt-tab-shape role="tab" tab-title="Videos" data-test="regular" data-name="tab: Videos">Videos</yt-tab-shape>
+  <yt-tab-shape role="tab" tab-title="Shorts" data-test="short" data-name="tab: Shorts (en)">Shorts</yt-tab-shape>
+  <yt-tab-shape role="tab" tab-title="ショート" data-test="short" data-name="tab: Shorts (ja)">ショート</yt-tab-shape>
+  <yt-tab-shape role="tab" tab-title="YouTube Shorts" data-test="short" data-name="tab: Shorts (uk)">YouTube Shorts</yt-tab-shape>
+  <yt-tab-shape role="tab" tab-title="Shows" data-test="regular" data-name="tab: Shows">Shows</yt-tab-shape>
+</yt-tab-group-shape>

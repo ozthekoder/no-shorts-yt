@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fixture: logged-in surfaces</title>
+<!-- Watch-page sidebar and notifications showed no Shorts in the logged-out survey (2026-10-16).
+     These skeletons use known markup defensively; verify manually in a logged-in Zen profile. -->
+<div id="related">
+  <yt-lockup-view-model data-test="regular" data-name="regular related video">
+    <a href="/watch?v=jjjjjjjjjjj">Related video</a>
+  </yt-lockup-view-model>
+  <ytd-reel-shelf-renderer data-test="short" data-name="related Shorts shelf">
+    <a href="/shorts/kkkkkkkkkkk">Related Short</a>
+  </ytd-reel-shelf-renderer>
+  <yt-lockup-view-model data-test="short" data-name="Short lockup in related">
+    <a href="/shorts/lllllllllll">Short lockup</a>
+  </yt-lockup-view-model>
+</div>
+
+<ytd-multi-page-menu-renderer>
+  <ytd-notification-renderer data-test="regular" data-name="regular upload notification">
+    <a href="/watch?v=mmmmmmmmmmm">New video</a>
+  </ytd-notification-renderer>
+  <ytd-notification-renderer data-test="short" data-name="Short upload notification">
+    <a href="/shorts/nnnnnnnnnnn">New Short</a>
+  </ytd-notification-renderer>
+</ytd-multi-page-menu-renderer>

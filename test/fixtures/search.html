@@ -1,0 +1,33 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fixture: search results</title>
+<!-- Nesting observed on www.youtube.com/results, 2026-10-16 (Firefox, en-US).
+     The "Shorts" heading lives inside grid-shelf-view-model, so hiding the shelf removes it too. -->
+<ytd-item-section-renderer>
+  <div id="contents">
+    <grid-shelf-view-model class="ytGridShelfViewModelHost" data-test="short" data-name="search Shorts shelf">
+      <h2>Shorts</h2>
+      <ytm-shorts-lockup-view-model-v2>
+        <ytm-shorts-lockup-view-model><a href="/shorts/eeeeeeeeeee">Short result</a></ytm-shorts-lockup-view-model>
+      </ytm-shorts-lockup-view-model-v2>
+    </grid-shelf-view-model>
+
+    <ytd-video-renderer data-test="regular" data-name="regular search result">
+      <a id="thumbnail" href="/watch?v=fffffffffff">Regular result</a>
+    </ytd-video-renderer>
+
+    <!-- Guard: grid-shelf-view-model is a generic component; only Shorts shelves may be hidden. -->
+    <grid-shelf-view-model class="ytGridShelfViewModelHost" data-test="regular" data-name="non-Shorts grid shelf">
+      <h2>Related</h2>
+      <yt-lockup-view-model><a href="/watch?v=ggggggggggg">Shelf video</a></yt-lockup-view-model>
+    </grid-shelf-view-model>
+
+    <!-- Defensive (legacy markup, not seen in the 2026-10-16 survey). -->
+    <ytd-video-renderer data-test="short" data-name="Short as a list result (legacy)">
+      <a id="thumbnail" href="/shorts/hhhhhhhhhhh">Short in list</a>
+    </ytd-video-renderer>
+    <ytd-reel-shelf-renderer data-test="short" data-name="reel shelf (legacy)">
+      <a href="/shorts/iiiiiiiiiii">Legacy reel shelf</a>
+    </ytd-reel-shelf-renderer>
+  </div>
+</ytd-item-section-renderer>

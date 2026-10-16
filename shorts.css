@@ -1,0 +1,37 @@
+/* No Shorts: hides YouTube Shorts from discovery surfaces.
+ * Direct /shorts/<id> URLs are intentionally left alone.
+ * Selectors were checked against live YouTube on 2026-10-16 unless marked "legacy".
+ * Each group is its own rule: one unparseable selector drops its whole list,
+ * so a broken group can't take the others down with it. */
+
+/* 1. Shelves */
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]), /* home, subscriptions */
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model),            /* search */
+ytd-reel-shelf-renderer                                             /* legacy: search, watch sidebar */ {
+  display: none !important;
+}
+
+/* 2. Individual cards, keyed on the URL path (never translated) */
+ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+ytd-video-renderer:has(a[href^="/shorts/"]),
+yt-lockup-view-model:has(a[href^="/shorts/"]),
+ytd-notification-renderer:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
+
+/* Search filter chip: matched by label in shorts.js, which sets data-no-shorts */
+yt-chip-cloud-chip-renderer[data-no-shorts] {
+  display: none !important;
+}
+
+/* 3. Navigation: full sidebar, mini sidebar, channel "Shorts" tab.
+ * Markup and per-language labels are documented in test/fixtures/nav.html.
+ * The full sidebar entry has no href, so match its icon (same in every language)
+ * or its exact label. Labels must match exactly: subscribed channels use the same
+ * renderer with the channel name as title. */
+ytd-guide-entry-renderer:has(path[d^="m13.467 1.19-8 4.7"]),
+ytd-guide-entry-renderer:has(a#endpoint:is([title="Shorts"], [title="YouTube Shorts"], [title="ショート"])),
+ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+yt-tab-shape:is([tab-title="Shorts"], [tab-title="YouTube Shorts"], [tab-title="ショート"]) {
+  display: none !important;
+}

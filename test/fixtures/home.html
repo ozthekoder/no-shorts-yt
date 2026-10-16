@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fixture: home feed</title>
+<!-- Nesting observed on www.youtube.com home, 2026-10-16 (Firefox, en-US, with watch history). -->
+<ytd-rich-grid-renderer>
+  <div id="contents">
+    <ytd-rich-item-renderer data-test="regular" data-name="regular video card">
+      <yt-lockup-view-model><a href="/watch?v=aaaaaaaaaaa">Regular video</a></yt-lockup-view-model>
+    </ytd-rich-item-renderer>
+
+    <ytd-rich-section-renderer data-test="short" data-name="home Shorts shelf">
+      <div id="content">
+        <ytd-rich-shelf-renderer is-shorts>
+          <div id="title">Shorts</div>
+          <div id="contents">
+            <ytd-rich-item-renderer>
+              <ytm-shorts-lockup-view-model-v2>
+                <ytm-shorts-lockup-view-model><a href="/shorts/bbbbbbbbbbb">A Short</a></ytm-shorts-lockup-view-model>
+              </ytm-shorts-lockup-view-model-v2>
+            </ytd-rich-item-renderer>
+          </div>
+        </ytd-rich-shelf-renderer>
+      </div>
+    </ytd-rich-section-renderer>
+
+    <ytd-rich-section-renderer data-test="regular" data-name="non-Shorts section (Explore more topics)">
+      <div id="content">
+        <ytd-rich-shelf-renderer>
+          <div id="title">Explore more topics</div>
+          <a href="/watch?v=ccccccccccc">Topic video</a>
+        </ytd-rich-shelf-renderer>
+      </div>
+    </ytd-rich-section-renderer>
+
+    <!-- Defensive: a Short card sitting loose in the grid (seen in subscriptions-style feeds). -->
+    <ytd-rich-item-renderer data-test="short" data-name="loose Short card in grid">
+      <ytm-shorts-lockup-view-model-v2>
+        <ytm-shorts-lockup-view-model><a href="/shorts/ddddddddddd">Loose Short</a></ytm-shorts-lockup-view-model>
+      </ytm-shorts-lockup-view-model-v2>
+    </ytd-rich-item-renderer>
+  </div>
+</ytd-rich-grid-renderer>

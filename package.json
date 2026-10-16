@@ -1,0 +1,34 @@
+{
+  "name": "no-shorts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zen/Firefox extension that hides YouTube Shorts from feeds, search, sidebars and navigation.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "lint": "web-ext lint",
+    "test": "playwright test",
+    "start": "web-ext run --firefox=/Applications/Zen.app/Contents/MacOS/zen --start-url https://www.youtube.com",
+    "build": "web-ext build --overwrite-dest",
+    "sign:unlisted": "web-ext sign --channel=unlisted",
+    "sign:listed": "web-ext sign --channel=listed",
+    "survey": "node scripts/survey.mjs"
+  },
+  "webExt": {
+    "ignoreFiles": [
+      "docs",
+      "test",
+      "scripts",
+      "test-results",
+      "playwright-report",
+      "playwright.config.js",
+      "package.json",
+      "package-lock.json",
+      "README.md"
+    ]
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "web-ext": "^10.8.0"
+  }
+}

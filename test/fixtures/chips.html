@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>fixture: search filter chips</title>
+<!-- Observed on www.youtube.com/results, 2026-10-16 (Firefox). Chips carry no attribute or link
+     identifying them; only the label text does: "Shorts" in most languages, "ショート" (ja),
+     "YouTube Shorts" (uk). -->
+<yt-chip-cloud-renderer>
+  <div id="chips">
+    <yt-chip-cloud-chip-renderer chip-style="STYLE_HOME_FILTER" data-test="regular" data-name="chip: All">
+      <chip-shape class="ytChipShapeHost"><button>All</button></chip-shape>
+    </yt-chip-cloud-chip-renderer>
+    <yt-chip-cloud-chip-renderer chip-style="STYLE_HOME_FILTER" data-test="short" data-name="chip: Shorts (en)">
+      <chip-shape class="ytChipShapeHost"><button>Shorts</button></chip-shape>
+    </yt-chip-cloud-chip-renderer>
+    <yt-chip-cloud-chip-renderer chip-style="STYLE_HOME_FILTER" data-test="short" data-name="chip: Shorts (ja)">
+      <chip-shape class="ytChipShapeHost"><button>ショート</button></chip-shape>
+    </yt-chip-cloud-chip-renderer>
+    <yt-chip-cloud-chip-renderer chip-style="STYLE_HOME_FILTER" data-test="short" data-name="chip: Shorts (uk)">
+      <chip-shape class="ytChipShapeHost"><button>YouTube Shorts</button></chip-shape>
+    </yt-chip-cloud-chip-renderer>
+    <yt-chip-cloud-chip-renderer chip-style="STYLE_HOME_FILTER" data-test="regular" data-name="chip: Videos">
+      <chip-shape class="ytChipShapeHost"><button>Videos</button></chip-shape>
+    </yt-chip-cloud-chip-renderer>
+  </div>
+</yt-chip-cloud-renderer>

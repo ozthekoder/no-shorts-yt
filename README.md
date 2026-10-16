@@ -43,7 +43,7 @@ To test in your own profile (for example, to check Subscriptions while logged in
 
 ## Signing and publishing
 
-Needs AMO API credentials from <https://addons.mozilla.org/developers/addon/api/key/>,
+Needs AMO API credentials from https://addons.mozilla.org/developers/addon/api/key/ (Developer Hub → Tools → Manage API Keys),
 exported as `WEB_EXT_API_KEY` and `WEB_EXT_API_SECRET` (never commit them).
 
 - Personal install: `npm run sign:unlisted` creates a signed `.xpi` in `web-ext-artifacts/`.

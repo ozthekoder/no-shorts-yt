@@ -50,7 +50,7 @@ docs/superpowers/specs/2026-10-16-no-shorts-design.md   # copy of this design
 ```
 - `data_collection_permissions` is **mandatory** for new AMO submissions (since 2025-11-03). Without it, signing is rejected.
 - `strict_min_version: 140.0` covers `:has()` (Firefox 121+) and avoids the extra consent requirements that apply to Firefox versions below 140.
-- The gecko `id` is permanent once signed, so confirm it before the first `web-ext sign`. The AMO name must be unique; if "No Shorts" is taken, pick another name at submission time.
+- The gecko `id` is permanent once signed, so chosen 2026-10-16 as `no-shorts@oozdemir2704` (personal project). The AMO name must be unique; if "No Shorts" is taken, pick another name at submission time.
 - No `permissions` array. The content-script match on `www.youtube.com` is the whole footprint.
 
 ### shorts.css: three selector groups

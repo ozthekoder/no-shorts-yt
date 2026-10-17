@@ -49,7 +49,8 @@ exported as `WEB_EXT_API_KEY` and `WEB_EXT_API_SECRET` (never commit them).
 
 - Personal install: `npm run sign:unlisted` creates a signed `.xpi` in `web-ext-artifacts/`.
   Install it in Zen via `about:addons` → gear → *Install Add-on From File*.
-- Public listing: `npm run sign:listed` submits for review, with the listing text, categories and
+- Public listing: `npm run sign:listed` submits for review and exits without waiting for it, with
+  the listing text, categories and
   license taken from `store/amo-metadata.json`. Upload `store/icon-128.png` as the listing icon and
   `store/screenshots/*.png` (captions in `store/screenshots/captions.txt`) in the Developer Hub.
   Screenshots capture live YouTube, so review every image before uploading: feeds and ads rotate. Every upload, on either channel, needs a new `version` in `manifest.json`

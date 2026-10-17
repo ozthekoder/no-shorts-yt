@@ -4,6 +4,13 @@ A Zen/Firefox extension that hides YouTube Shorts from feeds, search, sidebars a
 Direct `/shorts/<id>` links still open normally; only places that surface Shorts are cleaned up.
 No settings, no data collection. Turn it off from `about:addons`.
 
+## Install
+
+Get it from Firefox Add-ons: [No Shorts](https://addons.mozilla.org/firefox/addon/no-shorts-yt/).
+Works in Firefox and Firefox-based browsers such as Zen.
+
+> The listing is pending Mozilla's review; the page goes live once it's approved.
+
 ## What gets hidden
 
 | Surface | How |

@@ -1,0 +1,6 @@
+Captions for the AMO listing screenshots (Developer Hub → Edit Product Page → Media).
+
+1-search-before.png   Search results with Shorts: a Shorts shelf, the Shorts filter and the Shorts sidebar entry.
+1-search-after.png    The same search with No Shorts: just regular videos.
+2-channel-before.png  A channel page with its Shorts tab and the Shorts sidebar entry.
+2-channel-after.png   With No Shorts, the channel's Shorts tab and the sidebar entry are gone.

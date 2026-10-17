@@ -2,19 +2,10 @@
 // reports any Shorts still visible. Catches YouTube markup drift the fixtures can't.
 // Usage: node scripts/live-check.mjs [locale]   (default "en-US"); exits 1 on leaks.
 import { firefox } from '@playwright/test';
-import { readFile } from 'node:fs/promises';
+import { inject, isEmptyFeed, loadExtension, seedWatchHistory } from './youtube.mjs';
 
 const locale = process.argv[2] ?? 'en-US';
-const css = await readFile(new URL('../shorts.css', import.meta.url), 'utf8');
-const js = await readFile(new URL('../shorts.js', import.meta.url), 'utf8');
-
-// Mirrors the manifest's run_at: document_start injection.
-function inject({ css, js }) {
-  const style = document.createElement('style');
-  style.textContent = css;
-  document.documentElement.append(style);
-  new Function(js)();
-}
+const extension = await loadExtension();
 
 function leaks() {
   const visible = (el) => el.checkVisibility();
@@ -35,18 +26,10 @@ const browser = await firefox.launch();
 let failed = false;
 for (const width of [1400, 1000]) {
   const context = await browser.newContext({ viewport: { width, height: 1000 }, locale });
-  await context.addInitScript(inject, { css, js });
+  await context.addInitScript(inject, extension);
   const page = await context.newPage();
 
-  // Watch history makes YouTube render the home feed for a logged-out session (not always).
-  for (const id of ['dQw4w9WgXcQ', '9bZkp7q19f0', 'kJQP7kiw5Fk']) {
-    await page.goto(`https://www.youtube.com/watch?v=${id}`, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(8000);
-    for (let i = 0; i < 4; i++) {
-      await page.mouse.wheel(0, 2500);
-      await page.waitForTimeout(1500);
-    }
-  }
+  await seedWatchHistory(page);
 
   for (const [name, url] of [
     ['home', 'https://www.youtube.com/'],
@@ -60,8 +43,7 @@ for (const width of [1400, 1000]) {
       await page.waitForTimeout(1200);
     }
     const r = await page.evaluate(leaks);
-    // YouTube's "Try searching to get started" nudge means it served no feed to check.
-    if (await page.locator('ytd-feed-nudge-renderer').count()) {
+    if (await isEmptyFeed(page)) {
       console.log(`SKIP ${width}px ${name.padEnd(8)} YouTube served an empty feed (no watch history)`);
       continue;
     }

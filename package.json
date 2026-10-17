@@ -13,7 +13,8 @@
     "sign:unlisted": "web-ext sign --channel=unlisted",
     "sign:listed": "web-ext sign --channel=listed --amo-metadata=store/amo-metadata.json",
     "survey": "node scripts/survey.mjs",
-    "check:live": "node scripts/live-check.mjs"
+    "check:live": "node scripts/live-check.mjs",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "webExt": {
     "ignoreFiles": [
